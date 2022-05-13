@@ -59,8 +59,8 @@ const Dashboard = () => {
               margin: "16px 0",
             }}
           >
-            <Breadcrumb.Item>User</Breadcrumb.Item>
-            <Breadcrumb.Item>Bill</Breadcrumb.Item>
+            <Breadcrumb.Item>Usuario</Breadcrumb.Item>
+            <Breadcrumb.Item>Nombre Apellido</Breadcrumb.Item>
           </Breadcrumb>
           <div
             className="site-layout-background"

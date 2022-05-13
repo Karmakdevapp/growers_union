@@ -1,80 +1,342 @@
 import React from "react";
 import { Table, Tag, Space } from "antd";
 
-const columns = [
+const columnas = [
   {
-    title: "Name",
-    dataIndex: "name",
-    key: "name",
+    title: "Shipper",
+    dataIndex: "SHI",
+    key: "SHI",
     render: text => <a>{text}</a>,
   },
   {
-    title: "Age",
-    dataIndex: "age",
-    key: "age",
+    title: "Referencia",
+    dataIndex: "REF",
+    key: "REF",
   },
   {
-    title: "Address",
-    dataIndex: "address",
-    key: "address",
+    title: "Puerto de embarque",
+    dataIndex: "POL",
+    key: "POL",
   },
   {
-    title: "Tags",
-    key: "tags",
-    dataIndex: "tags",
-    render: tags => (
-      <>
-        {tags.map(tag => {
-          let color = tag.length > 5 ? "geekblue" : "green";
-          if (tag === "loser") {
-            color = "volcano";
-          }
-          return (
-            <Tag color={color} key={tag}>
-              {tag.toUpperCase()}
-            </Tag>
-          );
-        })}
-      </>
-    ),
+    title: "Puerto de descarga",
+    dataIndex: "POD",
+    key: "POD",
+    render: text => <a>{text}</a>,
   },
   {
-    title: "Action",
-    key: "action",
-    render: (text, record) => (
-      <Space size="middle">
-        <a>Invite {record.name}</a>
-        <a>Delete</a>
-      </Space>
-    ),
+    title: "Naviera",
+    dataIndex: "NAV",
+    key: "NAV",
+    render: text => <a>{text}</a>,
   },
+  {
+    title: "Intermediario ",
+    dataIndex: "FW",
+    key: "FW",
+    render: text => <a>{text}</a>,
+  },
+  {
+    title: "Cant. Contenedores",
+    dataIndex: "C",
+    key: "C",
+    render: text => <a>{text}</a>,
+  },
+  {
+    title: "Palletizado",
+    dataIndex: "PAL",
+    key: "PAL",
+    render: text => <a>{text}</a>,
+  },
+  {
+    title: "Cant. Cajas",
+    dataIndex: "BOX",
+    key: "BOX",
+    render: text => <a>{text}</a>,
+  },
+  {
+    title: "Comentario",
+    dataIndex: "COMENT",
+    key: "COMENT",
+    render: text => <a>{text}</a>,
+  },
+  {
+    title: "Buque o Embarque",
+    dataIndex: "VESSEL",
+    key: "VESSEL",
+    render: text => <a>{text}</a>,
+  },
+  {
+    title: "Cliente/Orden de Compra",
+    dataIndex: "CLIENT",
+    key: "CLIENT",
+    render: text => <a>{text}</a>,
+  },
+  {
+    title: "Nro. Contenedor",
+    dataIndex: "CONTAINER",
+    key: "CONTAINER",
+    render: text => <a>{text}</a>,
+  },
+  {
+    title: "Vendedor",
+    dataIndex: "CTC",
+    key: "CTC",
+    render: text => <a>{text}</a>,
+  },
+  {
+    title: "Fruta",
+    dataIndex: "ESP",
+    key: "ESP",
+    render: text => <a>{text}</a>,
+  },
+  {
+    title: "Variedad",
+    dataIndex: "VARIETY",
+    key: "VARIETY",
+    render: text => <a>{text}</a>,
+  },
+  {
+    title: "Fecha de zarpado",
+    dataIndex: "ETD",
+    key: "ETD",
+    render: text => <a>{text}</a>,
+  },
+  {
+    title: "Fecha de arribo",
+    dataIndex: "ETA",
+    key: "ETA",
+    render: text => <a>{text}</a>,
+  },
+  {
+    title: "Estado",
+    dataIndex: "REALESTADO",
+    key: "REALESTADO",
+    render: text => <a>{text}</a>,
+  },
+  {
+    title: "Nro. de factura ",
+    dataIndex: "FCCOMPRAFRUTA",
+    key: "FCCOMPRAFRUTA",
+    render: text => <a>{text}</a>,
+  },
+  {
+    title: "Número del conocimiento de embarque",
+    dataIndex: "BL",
+    key: "BL",
+    render: text => <a>{text}</a>,
+  },
+  {
+    title: "Envío del Packing list",
+    dataIndex: "PL",
+    key: "PL",
+    render: text => <a>{text}</a>,
+  },
+  {
+    title: "Envío del Cert. Fitosanitario ",
+    dataIndex: "FITO",
+    key: "FITO",
+    render: text => <a>{text}</a>,
+  },
+  {
+    title: "Envío del Cert. de Origen ",
+    dataIndex: "CO",
+    key: "CO",
+    render: text => <a>{text}</a>,
+  },
+  {
+    title: "Envío del Form A ",
+    dataIndex: "FA",
+    key: "FA",
+    render: text => <a>{text}</a>,
+  },
+  {
+    title: "Envío de DHL a destino ",
+    dataIndex: "DHLFECHA",
+    key: "DHLFECHA",
+    render: text => <a>{text}</a>,
+  },
+  {
+    title: "Nro. de guía DHL ",
+    dataIndex: "DHLNUMERO",
+    key: "DHLNUMERO",
+    render: text => <a>{text}</a>,
+  },
+  {
+    title: "Costo del flete",
+    dataIndex: "FLT1",
+    key: "FLT1",
+    render: text => <a>{text}</a>,
+  },
+  {
+    title: "Nro. de factura del proveedor del flete ",
+    dataIndex: "FC1",
+    key: "FC1",
+    render: text => <a>{text}</a>,
+  },
+  {
+    title: "Fecha de pago del flete",
+    dataIndex: "PAGO",
+    key: "PAGO",
+    render: text => <a>{text}</a>,
+  },
+
+  {
+    title: "Vendedor/importe de la venta del flete ",
+    dataIndex: "FLT2",
+    key: "FLT2",
+    render: text => <a>{text}</a>,
+  },
+
+  {
+    title: "Vendedor/número de factura de la venta del flete ",
+    dataIndex: "FC2",
+    key: "FC2",
+    render: text => <a>{text}</a>,
+  },
+
+  {
+    title: "Fecha de cobro de la venta del flete",
+    dataIndex: "COBRADO",
+    key: "COBRADO",
+    render: text => <a>{text}</a>,
+  },
+
+  {
+    title: "Receptor o importe del rebate",
+    dataIndex: "ABT",
+    key: "ABT",
+    render: text => <a>{text}</a>,
+  },
+  {
+    title: "ARI",
+    dataIndex: "ARI",
+    key: "ARI",
+    render: text => <a>{text}</a>,
+  },
+
+
+
 ];
 
-const data = [
-  {
-    key: "1",
-    name: "John Brown",
-    age: 32,
-    address: "New York No. 1 Lake Park",
-    tags: ["nice", "developer"],
-  },
-  {
-    key: "2",
-    name: "Jim Green",
-    age: 42,
-    address: "London No. 1 Lake Park",
-    tags: ["loser"],
-  },
-  {
-    key: "3",
-    name: "Joe Black",
-    age: 32,
-    address: "Sidney No. 1 Lake Park",
-    tags: ["cool", "teacher"],
-  },
+const datos = [
+        {
+            SHI: "UNIFR",
+            REF: "MAYO-X5-DSC",
+            POL: "CRICA",
+            POD: "STP",
+            NAV: "MSC",
+            FW: "MSC",
+            C: "1",
+            PAL : " 21 ",
+            BOX: " 1,680 ",
+            COMENT: "Comentario de prueba",
+            VESSEL: "MSC ZLATA R. NQ052R",
+            CLIENT: "AYSEL - EX RVI-2020-53-04-GROERS-49596-SPB-DSC_1",
+            CONTAINER: "SEGU9297795",
+            CTC: "MAYO",
+            ESP: "PIÑA",
+            VARIETY: "PIÑA",
+            ETD: "03/01/21",
+            ETA: "24/01/21",
+            REALESTADO: "RECHAZ",
+            FCCOMPRAFRUTA: " 00100001090000000265 / A550 ",
+            BL: "MEDUJ0209356",
+            PL: "7-1",
+            FITO: "7-1",
+            CO: "7-1",
+            FA: "7-1",
+            DHLFECHA: "08/01/21",
+            DHLNUMERO: "DHL 1516919342",
+            FLT1: " 4,833 ",
+            FC1: "732360+733491",
+            PAGO: "14/01/2021",
+            FLT2: " GRO ",
+            FC2: "GRO",
+            COBRADO: "GRO",
+            RBT: "GRO",
+            ARI: "  GRO"
+        },
+        {
+            SHI: "UNIFR",
+            REF: "TANDER",
+            POL: "CRICA",
+            POD: "STP",
+            NAV: "MSC",
+            FW: "MSC",
+            C: "1",
+            PAL: " 21 ",
+            BOX: " 1,680 ",
+            COMENT: "Comentario de prueba",
+            VESSEL: "MSC RONIT R NQ053R",
+            CLIENT: "LSM-012949",
+            CONTAINER: "SZLU9269436",
+            CTC: "IRINA",
+            ESP: "PIÑA",
+            VARIETY: "PIÑA",
+            ETD: "10/01/21",
+            ETA: "29/01/21",
+            REALESTADO: "ACEPTADO",
+            FCCOMPRAFRUTA: " 00100001090000000269 / A556 ",
+            BL: "MEDUJ0210974",
+            PL: "12-1",
+            FITO: "13-1",
+            CO: "13-1",
+            FA: "13-1",
+            RELE: "22-1",
+            DHLFECHA: "22/01/21",
+            DHLNUMERO: "DHL 2629469603",
+            FLT1: " DIR ",
+            FC1: "DIR",
+            PAGO: "DIR",
+            FLT2: " DIR ",
+            FC2: "DIR",
+            COBRADO: "DIR",
+            RBT: "DIR",
+            OBS: "DIR",
+            ARI: " GRO"
+        },
+        {
+            SHI: "UNIFR",
+            REF: "MAYO-X5-DSC",
+            POL: "CRICA",
+            POD: "STP",
+            NAV: "MSC",
+            FW: "MSC",
+            C: "1",
+            PAL : " 21 ",
+            BOX: " 1,680 ",
+            COMENT: "Comentario de prueba",
+            VESSEL: "MSC RONIT R NQ053R",
+            CLIENT: "AYSEL - EX RVI-2020-01-05-GROERS-49596-SPB-DSC_1",
+            CONTAINER: "SEGU9467187",
+            CTC: "IVAN",
+            ESP: "PIÑA",
+            VARIETY: "PIÑA",
+            ETD: "10/01/21",
+            ETA: "30/01/21",
+            REALESTADO: "RECHAZ",
+            FCCOMPRAFRUTA: " 00100001090000000268 / A557 ",
+            BL: "MEDUJ0210982",
+            PL: "12-1",
+            FITO: "13-1",
+            CO: "13-1",
+            FA: "13-1",
+            RELE: "18-1",
+            DHLFECHA: "18/01/21",
+            DHLNUMERO: "DHL 5130727302",
+            FLT1: " 4,820 ",
+            FC1: "733399",
+            PAGO: "29/01/2021",
+            FLT2: " GRO ",
+            FC2: "GRO",
+            COBRADO: "GRO",
+            RBT: "GRO",
+            ARI: "  GRO"
+        }
 ];
 const DataTable = (columns, data) => {
-  return <Table columns={columns} dataSource={data} />;
+  return <Table columns={columnas} dataSource={datos} scroll={{ x: 1300 }}/>;
 };
 
-export default Table;
+export default DataTable;
