@@ -1,4 +1,5 @@
 import React from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { Form, Input, Button, Checkbox } from "antd";
 import "antd/dist/antd.css";
 const Login = () => {
@@ -8,6 +9,12 @@ const Login = () => {
 
   const onFinishFailed = errorInfo => {
     console.log("Failed:", errorInfo);
+    navigate(`/dashboard`);
+  };
+  let navigate = useNavigate();
+  const routeChange = () => {
+    let path = `/dashboard`;
+    navigate(path);
   };
   return (
     <div className="loginForm">
@@ -71,8 +78,9 @@ const Login = () => {
             span: 4,
           }}
         >
-          <Button type="primary" htmlType="submit" block>
+          <Button type="primary" htmlType="submit" block onClick={routeChange}>
             Submit
+            <Link to="Dashboard"></Link>
           </Button>
         </Form.Item>
       </Form>

@@ -4,8 +4,18 @@
   margin-left: auto;
   margin-right: auto;
   height: 10rem;
-  
+  background-color: white;
 }
 .loginForm{
   padding-top: 20%;
+}
+
+#components-layout-demo-side .logo {
+  height: 32px;
+  margin: 16px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.site-layout .site-layout-background {
+  background: #fff;
 }
